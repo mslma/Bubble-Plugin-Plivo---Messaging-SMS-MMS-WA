@@ -1,0 +1,100 @@
+{
+    "auth": "basic_auth",
+    "calls": {
+        "AAU": {
+            "initialized": true,
+            "method": "post",
+            "name": "Send Message",
+            "params": {
+                "AAW": {
+                    "doc": "The sender ID you want to use, which may be a phone number, a short code, or an alphanumeric string. For a WhatsApp message, use the phone number associated with your WhatsApp Business Account and mapped to your Plivo account.",
+                    "key": "src",
+                    "private": true
+                },
+                "AAX": {
+                    "doc": "The phone number to which the message is to be delivered.\n\nThe following characters are stripped off automatically as part of the sanitization process: /, -, ., +, (, ), and white spaces.",
+                    "key": "dst",
+                    "private": true
+                },
+                "AAY": {
+                    "doc": "For SMS\n\nMessages containing only GSM 03.38 7-bit characters have a maximum limit of 1,600 characters. Messages longer than 160 characters are split into multiple message units, each unit consisting of 153 characters.\n\nMessages containing one or more UCS-2 16-bit Unicode characters have a maximum limit of 737 characters. Messages longer than 70 characters are split into multiple message units, each unit consisting of 67 characters.\n\nMultiunit messages are automatically stitched back together and delivered as a single message in countries where mobile networks support long message concatenation.\n\nFor WhatsApp messages\n\nYou can send messages with this field when sending freeform messages. Non-templated messages can only be sent when an active conversation is ongoing. If no conversation is ongoing, such messages will fail with error 340.\n\nUse this parameter when you’re sending freeform (non-templated) text messages. These messages may be no longer than 4,096 characters.\n\nWhen sent along with media, this text will be displayed in WhatsApp as a media caption. When sent with media, text may be no longer than 1,024 characters.",
+                    "key": "text",
+                    "private": true
+                },
+                "AAZ": {
+                    "doc": "Allowed values: sms for SMS messages, mms for MMS messages, or whatsapp for WhatsApp messages Defaults to sms.",
+                    "key": "type",
+                    "private": true,
+                    "value": "sms"
+                },
+                "AAa": {
+                    "doc": "A comma-separated list of URL-encoded hyperlinks to the images or media to be included in the MMS message. This is a required field if the message type is mms.\n\nUp to 10 media files may be included in a single MMS message.\n\nImages of type gif, png, and jpeg will be formatted correctly for device compatibility before being forwarded downstream. Plivo may also resize an image if the original attachment exceeds the maximum size supported by the destination network.\n\nYou may include other media types (audio, video, vcards), but attachments of these types are not optimized for device compatibility.\n\nThe total size of the MMS must not exceed 5MB. Messages exceeding this limit will be marked as Failed with error code 120.\n\nNote that Plivo will attempt to order media attachments on the device in the order specified in the API request, but the ordering cannot be guaranteed.\n\nFor WhatsApp messages\n\nUse only a single media URL per message. Image, video, documents, and audio files are supported. For valid file types and maximum file size accepted refer to Meta documentation.",
+                    "key": "media_urls",
+                    "optional": true,
+                    "private": true,
+                    "value": ""
+                }
+            },
+            "publish_as": "action",
+            "rank": 0,
+            "ret_value": "api.1725394437077x302469358093860860.plugin_api.AAU",
+            "should_reinitialize": true,
+            "types": "{\"plugin_api.AAU\":{\"caption\":\"Send Message\",\"fields\":{\"_p_body.api_id\":{\"ret_btype\":\"text\",\"caption\":\"body api_id\",\"sample_value\":\"43ea2db9-b66d-49bf-910f-c375552ef6c2\",\"path\":[\"body\",\"api_id\"]},\"_p_body.message\":{\"ret_btype\":\"text\",\"caption\":\"body message\",\"sample_value\":\"message(s) queued\",\"path\":[\"body\",\"message\"]},\"_p_body.message_uuid\":{\"ret_btype\":\"list.text\",\"caption\":\"body message_uuid\",\"sample_value\":\"e8ed1a21-da94-477f-b817-84c6e7eae252\",\"path\":[\"body\",\"message_uuid\"]},\"_p_error.status_code\":{\"ret_btype\":\"number\",\"caption\":\"error status_code\",\"sample_value\":202,\"path\":[\"error\",\"status_code\"]},\"_p_error.status_message\":{\"ret_btype\":\"text\",\"caption\":\"error status_message\",\"sample_value\":\"Accepted\",\"path\":[\"error\",\"status_message\"]},\"_p_error.body\":{\"ret_btype\":\"text\",\"caption\":\"error body\",\"sample_value\":\"\\\"{\\\\n  \\\\\\\"api_id\\\\\\\": \\\\\\\"43ea2db9-b66d-49bf-910f-c375552ef6c2\\\\\\\",\\\\n  \\\\\\\"message\\\\\\\": \\\\\\\"message(s) queued\\\\\\\",\\\\n  \\\\\\\"message_uuid\\\\\\\": [\\\\n    \\\\\\\"e8ed1a21-da94-477f-b817-84c6e7eae252\\\\\\\"\\\\n  ]\\\\n}\\\"\",\"path\":[\"error\",\"body\"]},\"_p_returned_an_error\":{\"ret_btype\":\"boolean\",\"caption\":\"returned_an_error\",\"sample_value\":false,\"path\":[\"returned_an_error\"]}}}}",
+            "url": "https://api.plivo.com/v1/Account/[auth_id]/Message/",
+            "url_params": {
+                "AAV": {
+                    "key": "auth_id",
+                    "private": true
+                }
+            },
+            "wrap_error": true
+        },
+        "AAc": {
+            "0": "A",
+            "1": "A",
+            "2": "b",
+            "initialized": true,
+            "method": "get",
+            "name": "List all messages",
+            "publish_as": "data",
+            "rank": 1,
+            "ret_value": "api.1725394437077x302469358093860860.plugin_api.AAc",
+            "should_reinitialize": false,
+            "types": "{\"plugin_api.AAc\":{\"caption\":\"List all message\",\"fields\":{\"_p_api_id\":{\"ret_btype\":\"text\",\"caption\":\"api_id\",\"sample_value\":\"b3499d2b-9674-4c27-9053-5579ebbeb1b6\",\"path\":[\"api_id\"]},\"_p_meta.limit\":{\"ret_btype\":\"number\",\"caption\":\"meta limit\",\"sample_value\":20,\"path\":[\"meta\",\"limit\"]},\"_p_meta.offset\":{\"ret_btype\":\"number\",\"caption\":\"meta offset\",\"sample_value\":0,\"path\":[\"meta\",\"offset\"]},\"_p_meta.next\":{\"ret_btype\":\"text\",\"caption\":\"meta next\",\"sample_value\":null,\"path\":[\"meta\",\"next\"]},\"_p_meta.previous\":{\"ret_btype\":\"text\",\"caption\":\"meta previous\",\"sample_value\":null,\"path\":[\"meta\",\"previous\"]},\"_p_objects\":{\"ret_btype\":\"list.api.1725394437077x302469358093860860.plugin_api.AAc.objects\",\"caption\":\"objects\",\"path\":[\"objects\"]}}},\"plugin_api.AAc.objects\":{\"caption\":\"List all messages object\",\"fields\":{\"_p_message_uuid\":{\"ret_btype\":\"text\",\"caption\":\"message_uuid\",\"sample_value\":\"e8ed1a21-da94-477f-b817-84c6e7eae252\",\"path\":[\"message_uuid\"]},\"_p_from_number\":{\"ret_btype\":\"text\",\"caption\":\"from_number\",\"sample_value\":\"16104248275\",\"path\":[\"from_number\"]},\"_p_to_number\":{\"ret_btype\":\"text\",\"caption\":\"to_number\",\"sample_value\":\"16505166423\",\"path\":[\"to_number\"]},\"_p_message_direction\":{\"ret_btype\":\"text\",\"caption\":\"message_direction\",\"sample_value\":\"outbound\",\"path\":[\"message_direction\"]},\"_p_message_state\":{\"ret_btype\":\"text\",\"caption\":\"message_state\",\"sample_value\":\"delivered\",\"path\":[\"message_state\"]},\"_p_message_time\":{\"ret_btype\":\"date\",\"caption\":\"message_time\",\"sample_value\":\"2024-09-03 13:18:04.899216-07:00\",\"path\":[\"message_time\"]},\"_p_message_sent_time\":{\"ret_btype\":\"date\",\"caption\":\"message_sent_time\",\"sample_value\":\"2024-09-03 13:18:05.017385-07:00\",\"path\":[\"message_sent_time\"]},\"_p_message_updated_time\":{\"ret_btype\":\"date\",\"caption\":\"message_updated_time\",\"sample_value\":\"2024-09-03 13:18:05.992142-07:00\",\"path\":[\"message_updated_time\"]},\"_p_message_type\":{\"ret_btype\":\"text\",\"caption\":\"message_type\",\"sample_value\":\"sms\",\"path\":[\"message_type\"]},\"_p_total_amount\":{\"ret_btype\":\"number\",\"caption\":\"total_amount\",\"sample_value\":\"0.00850\",\"path\":[\"total_amount\"]},\"_p_total_rate\":{\"ret_btype\":\"number\",\"caption\":\"total_rate\",\"sample_value\":\"0.00850\",\"path\":[\"total_rate\"]},\"_p_units\":{\"ret_btype\":\"number\",\"caption\":\"units\",\"sample_value\":1,\"path\":[\"units\"]},\"_p_mcc\":{\"ret_btype\":\"number\",\"caption\":\"mcc\",\"sample_value\":\"312\",\"path\":[\"mcc\"]},\"_p_mnc\":{\"ret_btype\":\"number\",\"caption\":\"mnc\",\"sample_value\":\"650\",\"path\":[\"mnc\"]},\"_p_error_message\":{\"ret_btype\":\"text\",\"caption\":\"error_message\",\"sample_value\":\"\",\"path\":[\"error_message\"]},\"_p_error_code\":{\"ret_btype\":\"text\",\"caption\":\"error_code\",\"sample_value\":\"000\",\"path\":[\"error_code\"]},\"_p_resource_uri\":{\"ret_btype\":\"text\",\"caption\":\"resource_uri\",\"sample_value\":\"/v1/Account/MAZMM2MJFMZTE0MZU4NZ/Message/e8ed1a21-da94-477f-b817-84c6e7eae252/\",\"path\":[\"resource_uri\"]},\"_p_carrier_fees\":{\"ret_btype\":\"number\",\"caption\":\"carrier_fees\",\"sample_value\":\"0.00300\",\"path\":[\"carrier_fees\"]},\"_p_carrier_fees_rate\":{\"ret_btype\":\"number\",\"caption\":\"carrier_fees_rate\",\"sample_value\":\"0.00300\",\"path\":[\"carrier_fees_rate\"]},\"_p_powerpack_id\":{\"ret_btype\":\"text\",\"caption\":\"powerpack_id\",\"sample_value\":null,\"path\":[\"powerpack_id\"]},\"_p_tendlc_campaign_id\":{\"ret_btype\":\"text\",\"caption\":\"tendlc_campaign_id\",\"sample_value\":null,\"path\":[\"tendlc_campaign_id\"]},\"_p_tendlc_registration_status\":{\"ret_btype\":\"text\",\"caption\":\"tendlc_registration_status\",\"sample_value\":\"not_applicable\",\"path\":[\"tendlc_registration_status\"]},\"_p_destination_country_iso2\":{\"ret_btype\":\"text\",\"caption\":\"destination_country_iso2\",\"sample_value\":\"US\",\"path\":[\"destination_country_iso2\"]},\"_p_is_domestic\":{\"ret_btype\":\"boolean\",\"caption\":\"is_domestic\",\"sample_value\":false,\"path\":[\"is_domestic\"]},\"_p_requester_ip\":{\"ret_btype\":\"text\",\"caption\":\"requester_ip\",\"sample_value\":\"35.92.79.242\",\"path\":[\"requester_ip\"]},\"_p_replaced_sender\":{\"ret_btype\":\"text\",\"caption\":\"replaced_sender\",\"sample_value\":\"16104248275\",\"path\":[\"replaced_sender\"]},\"_p_conversation_id\":{\"ret_btype\":\"text\",\"caption\":\"conversation_id\",\"sample_value\":\"\",\"path\":[\"conversation_id\"]},\"_p_conversation_origin\":{\"ret_btype\":\"text\",\"caption\":\"conversation_origin\",\"sample_value\":\"\",\"path\":[\"conversation_origin\"]},\"_p_conversation_expiration_timestamp\":{\"ret_btype\":\"text\",\"caption\":\"conversation_expiration_timestamp\",\"sample_value\":\"\",\"path\":[\"conversation_expiration_timestamp\"]},\"_p_dlt_entity_id\":{\"ret_btype\":\"text\",\"caption\":\"dlt_entity_id\",\"sample_value\":\"\",\"path\":[\"dlt_entity_id\"]},\"_p_dlt_template_id\":{\"ret_btype\":\"text\",\"caption\":\"dlt_template_id\",\"sample_value\":\"\",\"path\":[\"dlt_template_id\"]},\"_p_dlt_template_category\":{\"ret_btype\":\"text\",\"caption\":\"dlt_template_category\",\"sample_value\":\"\",\"path\":[\"dlt_template_category\"]},\"_p_destination_network\":{\"ret_btype\":\"text\",\"caption\":\"destination_network\",\"sample_value\":\"Bandwidth.com\",\"path\":[\"destination_network\"]},\"_p_log\":{\"ret_btype\":\"boolean\",\"caption\":\"log\",\"sample_value\":\"true\",\"path\":[\"log\"]}}}}",
+            "url": "https://api.plivo.com/v1/Account/[auth_id]/Message/",
+            "url_params": {
+                "AAV": {
+                    "key": "auth_id",
+                    "private": true
+                }
+            },
+            "wrap_error": false
+        },
+        "AAe": {
+            "0": "A",
+            "1": "A",
+            "2": "d",
+            "initialized": true,
+            "method": "get",
+            "name": "Retrieve a Message",
+            "publish_as": "data",
+            "rank": 2,
+            "ret_value": "api.1725394437077x302469358093860860.plugin_api.AAe",
+            "should_reinitialize": false,
+            "types": "{\"plugin_api.AAe\":{\"caption\":\"Retrieve a Message\",\"fields\":{\"_p_api_id\":{\"ret_btype\":\"text\",\"caption\":\"api_id\",\"sample_value\":\"531eba07-1a25-4759-949e-cdadebfb00b6\",\"path\":[\"api_id\"]},\"_p_carrier_fees\":{\"ret_btype\":\"number\",\"caption\":\"carrier_fees\",\"sample_value\":\"0.00300\",\"path\":[\"carrier_fees\"]},\"_p_carrier_fees_rate\":{\"ret_btype\":\"number\",\"caption\":\"carrier_fees_rate\",\"sample_value\":\"0.00300\",\"path\":[\"carrier_fees_rate\"]},\"_p_error_code\":{\"ret_btype\":\"text\",\"caption\":\"error_code\",\"sample_value\":\"000\",\"path\":[\"error_code\"]},\"_p_error_message\":{\"ret_btype\":\"text\",\"caption\":\"error_message\",\"sample_value\":\"\",\"path\":[\"error_message\"]},\"_p_from_number\":{\"ret_btype\":\"text\",\"caption\":\"from_number\",\"sample_value\":\"16104248275\",\"path\":[\"from_number\"]},\"_p_mcc\":{\"ret_btype\":\"number\",\"caption\":\"mcc\",\"sample_value\":\"312\",\"path\":[\"mcc\"]},\"_p_message_direction\":{\"ret_btype\":\"text\",\"caption\":\"message_direction\",\"sample_value\":\"outbound\",\"path\":[\"message_direction\"]},\"_p_message_state\":{\"ret_btype\":\"text\",\"caption\":\"message_state\",\"sample_value\":\"delivered\",\"path\":[\"message_state\"]},\"_p_message_time\":{\"ret_btype\":\"date\",\"caption\":\"message_time\",\"sample_value\":\"2024-09-03 13:18:04.899216-07:00\",\"path\":[\"message_time\"]},\"_p_message_sent_time\":{\"ret_btype\":\"date\",\"caption\":\"message_sent_time\",\"sample_value\":\"2024-09-03 13:18:05.017385-07:00\",\"path\":[\"message_sent_time\"]},\"_p_message_updated_time\":{\"ret_btype\":\"date\",\"caption\":\"message_updated_time\",\"sample_value\":\"2024-09-03 13:18:05.992142-07:00\",\"path\":[\"message_updated_time\"]},\"_p_message_type\":{\"ret_btype\":\"text\",\"caption\":\"message_type\",\"sample_value\":\"sms\",\"path\":[\"message_type\"]},\"_p_message_uuid\":{\"ret_btype\":\"text\",\"caption\":\"message_uuid\",\"sample_value\":\"e8ed1a21-da94-477f-b817-84c6e7eae252\",\"path\":[\"message_uuid\"]},\"_p_mnc\":{\"ret_btype\":\"number\",\"caption\":\"mnc\",\"sample_value\":\"650\",\"path\":[\"mnc\"]},\"_p_powerpack_id\":{\"ret_btype\":\"text\",\"caption\":\"powerpack_id\",\"sample_value\":\"\",\"path\":[\"powerpack_id\"]},\"_p_resource_uri\":{\"ret_btype\":\"text\",\"caption\":\"resource_uri\",\"sample_value\":\"/v1/Account/MAZMM2MJFMZTE0MZU4NZ/Message/e8ed1a21-da94-477f-b817-84c6e7eae252/\",\"path\":[\"resource_uri\"]},\"_p_to_number\":{\"ret_btype\":\"text\",\"caption\":\"to_number\",\"sample_value\":\"16505166423\",\"path\":[\"to_number\"]},\"_p_total_amount\":{\"ret_btype\":\"number\",\"caption\":\"total_amount\",\"sample_value\":\"0.00850\",\"path\":[\"total_amount\"]},\"_p_total_rate\":{\"ret_btype\":\"number\",\"caption\":\"total_rate\",\"sample_value\":\"0.00850\",\"path\":[\"total_rate\"]},\"_p_units\":{\"ret_btype\":\"number\",\"caption\":\"units\",\"sample_value\":1,\"path\":[\"units\"]},\"_p_tendlc_campaign_id\":{\"ret_btype\":\"text\",\"caption\":\"tendlc_campaign_id\",\"sample_value\":\"\",\"path\":[\"tendlc_campaign_id\"]},\"_p_tendlc_registration_status\":{\"ret_btype\":\"text\",\"caption\":\"tendlc_registration_status\",\"sample_value\":\"not_applicable\",\"path\":[\"tendlc_registration_status\"]},\"_p_destination_country_iso2\":{\"ret_btype\":\"text\",\"caption\":\"destination_country_iso2\",\"sample_value\":\"US\",\"path\":[\"destination_country_iso2\"]},\"_p_is_domestic\":{\"ret_btype\":\"boolean\",\"caption\":\"is_domestic\",\"sample_value\":false,\"path\":[\"is_domestic\"]},\"_p_requester_ip\":{\"ret_btype\":\"text\",\"caption\":\"requester_ip\",\"sample_value\":\"35.92.79.242\",\"path\":[\"requester_ip\"]},\"_p_replaced_sender\":{\"ret_btype\":\"text\",\"caption\":\"replaced_sender\",\"sample_value\":\"16104248275\",\"path\":[\"replaced_sender\"]},\"_p_conversation_id\":{\"ret_btype\":\"text\",\"caption\":\"conversation_id\",\"sample_value\":\"\",\"path\":[\"conversation_id\"]},\"_p_conversation_origin\":{\"ret_btype\":\"text\",\"caption\":\"conversation_origin\",\"sample_value\":\"\",\"path\":[\"conversation_origin\"]},\"_p_conversation_expiration_timestamp\":{\"ret_btype\":\"text\",\"caption\":\"conversation_expiration_timestamp\",\"sample_value\":\"\",\"path\":[\"conversation_expiration_timestamp\"]},\"_p_dlt_entity_id\":{\"ret_btype\":\"text\",\"caption\":\"dlt_entity_id\",\"sample_value\":\"\",\"path\":[\"dlt_entity_id\"]},\"_p_dlt_template_id\":{\"ret_btype\":\"text\",\"caption\":\"dlt_template_id\",\"sample_value\":\"\",\"path\":[\"dlt_template_id\"]},\"_p_dlt_template_category\":{\"ret_btype\":\"text\",\"caption\":\"dlt_template_category\",\"sample_value\":\"\",\"path\":[\"dlt_template_category\"]},\"_p_destination_network\":{\"ret_btype\":\"text\",\"caption\":\"destination_network\",\"sample_value\":\"Bandwidth.com\",\"path\":[\"destination_network\"]},\"_p_log\":{\"ret_btype\":\"boolean\",\"caption\":\"log\",\"sample_value\":\"true\",\"path\":[\"log\"]}}}}",
+            "url": "https://api.plivo.com/v1/Account/[auth_id]/Message/[message_uuid]",
+            "url_params": {
+                "AAV": {
+                    "key": "auth_id",
+                    "private": true
+                },
+                "AAf": {
+                    "key": "message_uuid",
+                    "private": true
+                }
+            },
+            "wrap_error": false
+        }
+    },
+    "human": "Plivo"
+}

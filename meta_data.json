@@ -1,0 +1,13 @@
+{
+    "categories": {
+        "0": "technical",
+        "1": "customer support"
+    },
+    "data_tracked": false,
+    "description": "Plivo is a cloud-based communications platform that enables businesses to embed voice and SMS capabilities into their applications. With Plivo, you can easily manage phone calls, send SMS messages, and enhance your customer engagement through a reliable and scalable communications infrastructure.",
+    "image": "//meta-q.cdn.bubble.io/f1725394453714x914765118892428700/Plivo-Icon.svg",
+    "license": "open_source",
+    "link": "https://www.plivo.com/",
+    "name": "Plivo - Messaging SMS MMS WA",
+    "plugin_instructions": "HOW IT WORKS\n1. Create an account at plivo.com.\n2. Purchase a phone number within your Plivo account.\n3. Navigate to Messaging > Overview in the Plivo dashboard.\n4. Copy your Auth ID and paste it into the plugin’s username field.\n5. Copy your Auth Token and paste it into the plugin’s password field.\n6.Use the “Send Message” action in the plugin to send your first message.\n\nNEED HELP OR SUPPORT?\nhttps://i2b.co/support"
+}
