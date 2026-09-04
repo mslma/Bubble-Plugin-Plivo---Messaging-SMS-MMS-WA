@@ -5,7 +5,7 @@
     },
     "data_tracked": false,
     "description": "Send SMS, MMS and WhatsApp messages from your Bubble app through Plivo's global messaging network. Whether it is a one-time passcode, a delivery update, an appointment reminder or a media-rich campaign, one action covers it — set the sender, the recipient, the text and, when you need it, the media. Delivery history stays queryable, so you can show message status inside your own app.\n\nKey Features:\n✉️ SMS, MMS & WhatsApp: A single Send Message action handles plain text, media attachments and WhatsApp delivery by switching the message type.\n\n🖼️ Media Support: Attach image, audio, video or document URLs for MMS and WhatsApp sends.\n\n📜 Message History: List all messages or retrieve a single message to build inboxes, audit logs and delivery dashboards.\n\n🌍 Global Reach: Plivo's carrier network covers 190+ countries with local number support.\n\n🔐 Simple Auth: Your Plivo Auth ID and Auth Token go in the plugin settings and stay on the server.\n\nPlugin support: https://inova.us/support",
-    "image": "//meta-q.cdn.bubble.io/f1725394453714x914765118892428700/Plivo-Icon.svg",
+    "image": "//meta-q.cdn.bubble.io/f1725652227040x432787925391784100/plivo%20messaging%20plugin%20logo.svg",
     "license": "open_source",
     "link": "https://www.plivo.com/",
     "name": "Plivo - Messaging SMS MMS WA",
